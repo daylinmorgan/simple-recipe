@@ -1,0 +1,17 @@
+<!-- <nav class="w-100 tc fixed white z-3"> -->
+<nav class="db center pa3 pa4-ns debug-grid">
+  <a href="/" class="link fl f4 fw9 f2-ns mb1 mb4-ns ttu">{{ .Site.Title }}</a>
+  <input type="checkbox" id="burger" class="f dn" />
+  <label for="burger" class="b pointer fr black">&#9776; </label>
+  <!-- swap with svg icon? -->
+  <ul class="menu list fr pl0 mt4-l f4 fw3" style="list-style-type: none">
+    <li class="ph2 pt2 tr">
+      <a href="/" class="link">Home</a>
+    </li>
+    {{ with .Site.Menus.main }} {{ range sort . }}
+    <li class="link ph2 pt2 tr">
+      <a href="{{ .URL | absLangURL }}" class="link">{{ .Name }}</a>
+    </li>
+    {{ end }} {{ end }}
+  </ul>
+</nav>

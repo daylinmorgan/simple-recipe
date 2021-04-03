@@ -1,0 +1,121 @@
+<div id="wrapper" class="recipe">
+  <!-- recipe (details inserted with Hugo) -->
+  <section>
+  {{ if .Params.image }}
+
+    <img src="{{ .Params.image }}" />
+ 
+  {{ else }}
+
+    <img src="{{ $.Site.Params.defaultImage }}">
+  
+  {{ end }}
+</section>
+  <section id="title">
+    <h1>{{ .Title }}</h1>
+  </section>
+  <section id="info"></section>
+
+  <div class="w-100 h-100 flex flex-wrap flex-auto flex-row-l flex-column justify-center debug-grid">
+    <div class="w-30-l h-100-l order-1 pr2">
+      <section id="ingredients">
+        <h2>ingredients</h2>
+        {{ with .Params.Ingredients }}
+        <ul class="list">
+          <!-- list ingredients that make up recipe -->
+          {{ range . }}
+          <li>{{ . }}</li>
+          {{ end }} {{end}}
+        </ul>
+      </section>
+    </div>
+    <div class="w-60-l h-100-l order-2 pr4">
+      <section id="steps">
+        <h2>steps</h2>
+        <ol>
+          <!-- list direction that make up recipe -->
+          {{ range .Params.Directions }}
+          <li>{{ . }}</li>
+          {{end}}
+        </ol>
+      </section>
+    </div>
+  </div>
+  <hr />
+  {{ if .Params.notes }}
+  <section id="notes">
+    <h2>notes</h2>
+    <ul>
+      {{ range .Params.notes}}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
+
+  {{ if $.Site.Params.help }}
+    <section id="help">
+      <h2>help!</h2>
+      <ul>
+        <li>
+          <a class="link" href="https://www.google.com/search?tbm=isch&q={{ .Title }}">Image search</a>
+        </li>
+        <li>
+          <a class="link" href="https://www.google.com/search?q={{ .Title }} recipes">More recipes</a>
+        </li>
+      </ul>
+    </section>
+  {{ end }}
+
+
+  {{ if .Params.basedon }}
+  <section id="basedon">
+    <h2>based on</h2>
+    <ul>
+      {{ range $index, $element := .Params.basedon.link }}
+      {{ $linknum := add $index 1 }}
+      <li><a class="link" href="{{ . }}">Ref. Link {{ $linknum }}</a></li>
+      {{ end }}
+
+      {{ range $index, $element := .Params.basedon.image }}
+      {{ $linknum := add $index 1 }}
+      <li><a class="link" href="{{ . }}">Ref. Image {{ $linknum }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </section>
+
+  <!-- links to related recipes -->
+  {{ if or .Params.tags .Params.cuisine .Params.category}}
+  <section id="related">
+    <h2>related recipes</h2>
+    {{ if .Params.tags }}
+    <strong>tags:</strong>
+      {{ range $key, $value := .Params.tags }}
+    <a class="link" href="/tags/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.tags) 1) }},
+      {{ else }}{{ end }}
+    {{ end }}
+    <br>
+    {{ end }}
+
+    {{ if .Params.cuisine }}
+    <strong>cuisines:</strong>
+      {{ range $key, $value := .Params.cuisine }}
+    <a class="link" href="/cuisine/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.cuisine) 1) }},
+      {{ else }}{{ end }}
+    {{ end }}
+    <br>
+    {{ end }}
+
+    {{ if .Params.category }}
+    <strong>categories:</strong>
+      {{ range $key, $value := .Params.category }}
+    <a class="link" href="/category/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.category) 1) }},
+      {{ else }}{{ end }}
+    {{ end }}
+    <br>
+    {{ end }} 
+
+  </section>
+  {{end}}
+</div>

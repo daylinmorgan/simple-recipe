@@ -1,0 +1,12 @@
+<div id="wrapper" class="cb center">
+    <!-- table of contents -->
+    <section id="toc">
+      <section class="toc">
+        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+        {{ range $paginator.Pages.ByTitle }}
+        <ul class="list capitalize" style="list-style: square outside;">
+          <li> <a href="{{ .RelPermalink }}" class="link fw5 f5">{{ .Title }} </a> </li>
+        </ul>
+        {{ end }}
+      </section>
+  </div>
