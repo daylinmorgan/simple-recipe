@@ -1,0 +1,10 @@
+<div class="cb" id="wrapper">
+  <h1 class="ttu f2 fl fw9">{{ .Title }}</h1>
+  <div class="w-100 h-100">
+    {{ range .Paginator.Pages.ByTitle }}
+    <ul class="list">
+      <li> <a class="link" href="{{ .RelPermalink }} ">{{ .Title }} </a> </li>
+    </ul>
+    {{ end }}
+  </div>
+</div>
