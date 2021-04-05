@@ -44,72 +44,73 @@
     </ul>
   </section>
   {{ end }}
+  <div class="noprint">
+    {{ if $.Site.Params.help }}
+    <section id="help">
+      <h2>help!</h2>
+      <ul>
+        <li>
+          <a class="link" href="https://www.google.com/search?tbm=isch&q={{ .Title }}">Image search</a>
+        </li>
+        <li>
+          <a class="link" href="https://www.google.com/search?q={{ .Title }} recipes">More recipes</a>
+        </li>
+      </ul>
+    </section>
+    {{ end }}
 
-  {{ if $.Site.Params.help }}
-  <section id="help">
-    <h2>help!</h2>
-    <ul>
-      <li>
-        <a class="link" href="https://www.google.com/search?tbm=isch&q={{ .Title }}">Image search</a>
-      </li>
-      <li>
-        <a class="link" href="https://www.google.com/search?q={{ .Title }} recipes">More recipes</a>
-      </li>
-    </ul>
-  </section>
-  {{ end }}
 
+    {{ if .Params.basedon }}
+    <section id="basedon">
+      <h2>based on</h2>
+      <ul>
+        {{ range $index, $element := .Params.basedon.link }}
+        {{ $linknum := add $index 1 }}
+        <li><a class="link" href="{{ . }}">Ref. Link {{ $linknum }}</a></li>
+        {{ end }}
 
-  {{ if .Params.basedon }}
-  <section id="basedon">
-    <h2>based on</h2>
-    <ul>
-      {{ range $index, $element := .Params.basedon.link }}
-      {{ $linknum := add $index 1 }}
-      <li><a class="link" href="{{ . }}">Ref. Link {{ $linknum }}</a></li>
+        {{ range $index, $element := .Params.basedon.image }}
+        {{ $linknum := add $index 1 }}
+        <li><a class="link" href="{{ . }}">Ref. Image {{ $linknum }}</a></li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </section>
+
+    <!-- links to related recipes -->
+    {{ if or .Params.tags .Params.cuisine .Params.category}}
+    <section id="related">
+      <h2>related recipes</h2>
+      {{ if .Params.tags }}
+      <strong>tags:</strong>
+      {{ range $key, $value := .Params.tags }}
+      <a class="link" href="/tags/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.tags) 1) }},
+      {{ else }}{{ end }}
+      {{ end }}
+      <br>
       {{ end }}
 
-      {{ range $index, $element := .Params.basedon.image }}
-      {{ $linknum := add $index 1 }}
-      <li><a class="link" href="{{ . }}">Ref. Image {{ $linknum }}</a></li>
+      {{ if .Params.cuisine }}
+      <strong>cuisines:</strong>
+      {{ range $key, $value := .Params.cuisine }}
+      <a class="link"
+        href="/cuisine/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.cuisine) 1) }},
+      {{ else }}{{ end }}
       {{ end }}
-    </ul>
-    {{ end }}
-  </section>
+      <br>
+      {{ end }}
 
-  <!-- links to related recipes -->
-  {{ if or .Params.tags .Params.cuisine .Params.category}}
-  <section id="related">
-    <h2>related recipes</h2>
-    {{ if .Params.tags }}
-    <strong>tags:</strong>
-    {{ range $key, $value := .Params.tags }}
-    <a class="link" href="/tags/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.tags) 1) }},
-    {{ else }}{{ end }}
-    {{ end }}
-    <br>
-    {{ end }}
+      {{ if .Params.category }}
+      <strong>categories:</strong>
+      {{ range $key, $value := .Params.category }}
+      <a class="link"
+        href="/category/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.category) 1) }},
+      {{ else }}{{ end }}
+      {{ end }}
+      <br>
+      {{ end }}
 
-    {{ if .Params.cuisine }}
-    <strong>cuisines:</strong>
-    {{ range $key, $value := .Params.cuisine }}
-    <a class="link"
-      href="/cuisine/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.cuisine) 1) }},
-    {{ else }}{{ end }}
-    {{ end }}
-    <br>
-    {{ end }}
-
-    {{ if .Params.category }}
-    <strong>categories:</strong>
-    {{ range $key, $value := .Params.category }}
-    <a class="link"
-      href="/category/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.category) 1) }},
-    {{ else }}{{ end }}
-    {{ end }}
-    <br>
-    {{ end }}
-
-  </section>
-  {{end}}
+    </section>
+    {{end}}
+  </div>
 </div>
