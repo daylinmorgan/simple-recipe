@@ -1,0 +1,26 @@
+{
+  "name": "simple-recipe",
+  "version": "0.1",
+  "description": "Simple Recipe Theme for Hugo",
+  "scripts": {
+    "hugo:prd": "hugo -e production -v --i18n-warnings --minify --gc --cleanDestinationDir",
+    "hugo:dev": "hugo -e development --config config.toml,config.dev.toml -v --i18n-warnings --gc --cleanDestinationDir --buildDrafts --buildFuture",
+    "hugo:srv": "hugo server -e development --config config.toml,config.dev.toml -v --i18n-warnings --buildDrafts --buildFuture --disableFastRender",
+    "theme:dev":"hugo server -e development -s exampleSite --themesDir=../.. --disableFastRender --buildDrafts --buildFuture"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaylinMorgan/simple-recipe.git"
+  },
+  "author": "Daylin Morgan",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.2",
+    "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.2.5",
+    "chokidar": "^3.5.1",
+    "postcss": "^8.2.9",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.1",
+    "tailwindcss": "^2.1.0"
+  }
+}
