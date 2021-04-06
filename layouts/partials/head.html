@@ -1,8 +1,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {{ $title := print .Site.Title " | " .Title }}
+    {{- $title := print .Site.Title " | " .Title }}
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
 
@@ -10,7 +9,7 @@
     <link rel="stylesheet" href="/css/custom.css" />
 
     {{- $appCSS := resources.Get "app.css" }}
-    <link rel="stylesheet" href="{{ $appCSS | safeHTML }}" media="all">
+    <link rel="stylesheet" href="{{ $appCSS.RelPermalink}}" media="all">
 
     <style>
         @media print {

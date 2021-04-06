@@ -1,17 +1,26 @@
-<!-- <nav class="w-100 tc fixed white z-3"> -->
-<nav class="db center pa3 pa4-ns debug-grid">
-  <a href="/" class="link fl f4 fw9 f2-ns mb1 mb4-ns ttu">{{ .Site.Title }}</a>
-  <input type="checkbox" id="burger" class="f dn" />
-  <label for="burger" class="b pointer fr black">&#9776; </label>
-  <!-- swap with svg icon? -->
-  <ul class="menu list fr pl0 mt4-l f4 fw3" style="list-style-type: none">
-    <li class="ph2 pt2 tr">
-      <a href="/" class="link">Home</a>
-    </li>
-    {{ with .Site.Menus.main }} {{ range sort . }}
-    <li class="link ph2 pt2 tr">
-      <a href="{{ .URL | absLangURL }}" class="link">{{ .Name }}</a>
-    </li>
-    {{ end }} {{ end }}
-  </ul>
-</nav>
+<header class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
+  <div class="flex-1 flex justify-between items-center">
+    <a href="/"> Recipe Book </a>
+  </div>
+  <label for="menu-toggle"
+    class="nav-menu-btn"><svg
+      class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+      <title>menu</title>
+      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+    </svg></label>
+  <input class="hidden" type="checkbox" id="menu-toggle" />
+
+  <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+    <nav>
+      <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
+        {{ with .Site.Menus.main }}
+        {{ range sort . }}
+        <li>
+          <a href="{{ .URL | absLangURL }}" class="nav-link">{{ .Name }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>
