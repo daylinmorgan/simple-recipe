@@ -1,0 +1,29 @@
+baseURL: "http://example.org/"
+languageCode: "en-us"
+title: "Recipe Book" 
+theme: "simple-recipe"
+
+params:
+  help: true
+  defautRecipeImage: "/images/xkcd720.png"
+
+menu:
+  main:
+    - name: Category
+      weight: 2
+      url: /category/
+    - name: Cuisine
+      weight: 3
+      url: /cuisine/
+    - name: Tags
+      weight: 4
+      url: /tags/
+    # - name: Home
+    #   weight: 1
+    #   url: /
+
+taxonomies:
+  category: category
+  cuisine: cuisine
+  tag: tags
+
