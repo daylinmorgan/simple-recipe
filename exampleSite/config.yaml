@@ -27,3 +27,5 @@ taxonomies:
   cuisine: cuisine
   tag: tags
 
+build:
+  writeStats: true
