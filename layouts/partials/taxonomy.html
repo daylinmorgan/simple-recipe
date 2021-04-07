@@ -1,12 +1,12 @@
-<div class="cb" id="wrapper">
-    <h1 class="cf ttu f2 fl fw9">{{ .Title }}</h1>
+<div class="" id="wrapper">
+    <h1 class="">{{ .Title }}</h1>
   {{ range .Pages.ByTitle }}
-  <hr class="cb" />
-  <div class="w-100 h-100 flex flex-wrap flex-auto flex-row-l flex-column justify-center">
-    <div class="w-20-l h-100-l order-1 pr2">
-        <a class="link ttu fw6 f3-l f4" href="{{ .RelPermalink }} ">{{ .Title }} </a>
+  <hr class="" />
+  <div class="">
+    <div class="">
+        <a class="link" href="{{ .RelPermalink }} ">{{ .Title }} </a>
     </div>
-    <div class="w-80-l h-100-l order-2 pr4">
+    <div class="">
         <ul class="list">
             {{ range .Pages.ByTitle }}
             <li> <a class="link" href = "{{ .RelPermalink }}">{{ .Page.Title }}</a></li>
