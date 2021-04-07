@@ -8,7 +8,7 @@
 font-family: "Fira Sans", sans-serif;
 } 
 
-
+/* 
 .link {
   color:black
   b
@@ -24,14 +24,14 @@ font-family: "Fira Sans", sans-serif;
 .link:hover   {
   transition: color .15s ease-in;
   background-color:yellow
-}
+} */
 
 .list {
   list-style: square outside;
 }
 
 
-/*Navbar*/
+/* Navbar
 
 .menu {
   display: none;
@@ -39,7 +39,7 @@ font-family: "Fira Sans", sans-serif;
 
 #burger:checked ~ .menu {
   display: inline-block;
-}
+} */
 /* 
 li a:hover,
 li a:target {
