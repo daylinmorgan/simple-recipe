@@ -9,6 +9,7 @@
 hugo_stats.json
 exampleSite/public/*
 exampleSite/resources/*
+assets/app.css
 
 # Executable may be added to repository
 hugo.exe
