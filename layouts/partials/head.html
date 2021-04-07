@@ -8,8 +8,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i,900,900i" />
     <link rel="stylesheet" href="/css/custom.css" />
 
-    {{- $appCSS := resources.Get "app.css" }}
-    <link rel="stylesheet" href="{{ $appCSS.RelPermalink}}" media="all">
+    {{ if (or ($.Site.IsServer) (eq hugo.Environment "development")) }}
+        {{- $appCSS := resources.Get "app.css" }}
+        <link rel="stylesheet" href="{{ $appCSS.RelPermalink}}" media="all">
+    {{ else }}
+        {{- $appCSS := resources.Get "app.min.css" }}
+        <link rel="stylesheet" href="{{ $appCSS.RelPermalink}}" media="all">
+    {{ end }}
 
     <style>
         @media print {
