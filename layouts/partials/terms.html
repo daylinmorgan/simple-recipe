@@ -1,8 +1,8 @@
-<div class="" id="wrapper">
-  <h1 class="">{{ .Title }}</h1>
+<div class="lg:max-w-3xl lg:p-2 px-2 object-center mx-auto">
+  <h1 class="text-left text-xl sm:text-3xl py-5">{{ .Title }}</h1>
   <div class="">
     {{ range .Paginator.Pages.ByTitle }}
-    <ul class="list">
+    <ul class="list pl-5">
       <li> <a class="link" href="{{ .RelPermalink }} ">{{ .Title }} </a> </li>
     </ul>
     {{ end }}

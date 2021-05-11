@@ -1,5 +1,6 @@
 
-<footer class="">
-    <small class="">Copyright (c) {{ now.Format "2006"}} <b class="">SOME COMPANY Inc</b>., All Rights Reserved</small>
-    </div>
-  </footer>
+<footer class="text-center py-4 print:hidden">
+  {{ if $.Site.Params.email }}
+    Send me your recipes! -> <a href="mailto:{{ $.Site.Params.email }}"> &#9993 </a>
+  {{ end }}
+</footer>

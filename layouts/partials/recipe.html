@@ -1,15 +1,28 @@
-<div id="wrapper" class="lg:max-w-3xl px-1 object-center mx-auto">
+<div id="wrapper" class="lg:max-w-3xl px-1 object-center mx-auto text-white print:text-black">
   <!-- recipe (details inserted with Hugo) -->
   <section>
-    <img class="mx-auto max-w-md" src="{{ index .Params "image" | default $.Site.Params.defautRecipeImage }}">
+    <img class="mx-auto max-w-md print:hidden" src="{{ index .Params "image" | default $.Site.Params.defautRecipeImage }}">
   </section>
   <section id="title">
-    <h1>{{ .Title }}</h1>
+    <h1 class="print:m-0 print:p-0">{{ .Title }}</h1>
   </section>
-  <section id="info"></section>
 
-  <div class="flex flex-wrap flex-auto lg:flex-row flex-column">
-    <div class="lg:w-4/12 pr-2 order-1">
+  {{ if .Params.info }}
+  <section id="info" >
+    {{ if .Params.info.yield }}
+    <div class="inline-block px-4"> <p class="font-bold inline">Yield:</p> {{ .Params.info.yield }} </div> 
+    {{ end }}
+    {{ if .Params.info.prepTime }}
+    <div class="inline-block px-4"> <p class="font-bold inline">PrepTime:</p> {{ .Params.info.prepTime }} </div>
+    {{ end }}
+    {{ if .Params.info.cookTime }}
+    <div class="inline-block px-4"><p class="font-bold inline">CookTime:</p> {{ .Params.info.cookTime }} </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  <div class="flex flex-wrap flex-auto lg:flex-row  flex-column">
+    <div class="lg:w-4/12 print:w-4/12 pr-2 order-1">
       <section id="ingredients">
         <h2>ingredients</h2>
         {{ with .Params.Ingredients }}
@@ -21,22 +34,22 @@
         </ul>
       </section>
     </div>
-    <div class="lg:w-8/12 pr-2 order-2">
+    <div class="lg:w-8/12 print:w-8/12 pr-2 order-2">
       <section id="steps">
         <h2>steps</h2>
         <ol class="list-decimal pl-5">
           <!-- list direction that make up recipe -->
           {{ range .Params.Directions }}
-          <li>{{ . }}</li>
+          <li onclick="this.classList.toggle('line-through');">{{ . }}</li>
           {{end}}
         </ol>
       </section>
     </div>
   </div>
-  <hr class="border-t-1 border-black text-center text-2xl" />
+  <hr class="border-t-1 border-white text-center text-2xl print:hidden" />
 
   {{ if .Params.notes }}
-  <section  id="notes">
+  <section id="notes">
     <h2>notes</h2>
     <ul class="list pl-5">
       {{ range .Params.notes}}
@@ -45,7 +58,7 @@
     </ul>
   </section>
   {{ end }}
-  <div class="noprint">
+  <div class="print:hidden">
     {{ if $.Site.Params.help }}
     <section id="help">
       <h2>help!</h2>
@@ -59,7 +72,6 @@
       </ul>
     </section>
     {{ end }}
-
 
     {{ if .Params.basedon }}
     <section id="basedon">
@@ -113,5 +125,6 @@
 
     </section>
     {{end}}
+    
   </div>
 </div>

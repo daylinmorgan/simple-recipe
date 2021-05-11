@@ -1,20 +1,19 @@
-<div class="" id="wrapper">
-    <h1 class="">{{ .Title }}</h1>
+<div class="lg:max-w-3xl lg:p-2 px-2 object-center mx-auto">
+  <h1 class="text-left sm:text-3xl font-bold">{{ .Title }}</h1>
   {{ range .Pages.ByTitle }}
-  <hr class="" />
-  <div class="">
-    <div class="">
-        <a class="link" href="{{ .RelPermalink }} ">{{ .Title }} </a>
+  <div>
+    <div class="py-5">
+      <a class="link italic text-lg" href="{{ .RelPermalink }} ">{{ .Title | humanize }} </a>
+      <hr/>
     </div>
-    <div class="">
-        <ul class="list">
-            {{ range .Pages.ByTitle }}
-            <li> <a class="link" href = "{{ .RelPermalink }}">{{ .Page.Title }}</a></li>
-            {{ end }}
-          </ul>
+    <div class="pl-5">
+      <ul class="list">
+        {{ range .Pages.ByTitle }}
+        <li> <a class="link" href="{{ .RelPermalink }}">{{ .Page.Title }}</a></li>
+        {{ end }}
+      </ul>
       </section>
     </div>
   </div>
-  <!-- <hr /> -->
   {{ end }}
 </div>
