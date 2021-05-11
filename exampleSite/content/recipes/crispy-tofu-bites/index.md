@@ -12,9 +12,10 @@ tags: # general info to connect to other recipes --- must be a list!
   - untested
   - vegan
   - vegetarian
-yield: # number of servings
-prepTime:
-cookTime:
+info:
+  yield: 2 # number of servings
+  prepTime: "70 m" # preparation in minutes
+  cookTime: "12 m" # total time once "cooking" starts
 
 ingredients:
   - 453 grams medium firm tofu
