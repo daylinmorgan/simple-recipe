@@ -17,6 +17,10 @@ section {
 
 }
 
+hr {
+  @apply border-dashed
+}
+
 .fira-sans {
   font-family: "Fira Sans", sans-serif;
 } 
