@@ -5,6 +5,6 @@
   "scripts": {
     "hugo:prd": "hugo -e production -v --i18n-warnings --minify --gc --cleanDestinationDir",
     "hugo:dev": "hugo -e development --config config.yaml,config.toml,config.dev.toml -v --i18n-warnings --gc --cleanDestinationDir --buildDrafts --buildFuture",
-    "hugo:srv": "hugo server -e development --config config.toml,config.dev.toml -v --i18n-warnings --buildDrafts --buildFuture --disableFastRender"
+    "hugo:srv": "hugo server -e development --config config.yaml,config.toml,config.dev.toml -v --i18n-warnings --buildDrafts --buildFuture --disableFastRender"
   }
 }
