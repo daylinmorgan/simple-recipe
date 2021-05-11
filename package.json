@@ -12,7 +12,8 @@
     "dev": "NODE_ENV=development npm run css:dev",
     "prd": "NODE_ENV=production npm run css:prd",
     "watch": "npm run watch:css",
-    "watch:css": "chokidar \"./src/*.css\" \"./src/tailwind.config.js\" -c \"NODE_ENV=development npm run css\""
+    "watch:css": "chokidar \"./src/*.css\" \"./src/tailwind.config.js\" -c \"NODE_ENV=development npm run css:dev\"",
+    "scriptcopy":"cp package.hugo.json ../../package.json"
   },
   "repository": {
     "type": "git",
