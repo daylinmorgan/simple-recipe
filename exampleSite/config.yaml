@@ -6,6 +6,7 @@ theme: "simple-recipe"
 params:
   help: true
   defautRecipeImage: "/images/xkcd720.png"
+  email: "me@dayl.in"
 
 menu:
   main:
@@ -18,9 +19,6 @@ menu:
     - name: Tags
       weight: 4
       url: /tags/
-    # - name: Home
-    #   weight: 1
-    #   url: /
 
 taxonomies:
   category: category
