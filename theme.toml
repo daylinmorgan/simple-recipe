@@ -10,6 +10,10 @@ tags = []
 features = []
 min_version = "0.41.0"
 
+[params]
+  favicon_32 = "/images/favicon-32x32.png"
+  favicon_16 = "/images/favicon-16x16.png"
+
 [author]
   name = "Daylin Morgan"
   homepage = ""
