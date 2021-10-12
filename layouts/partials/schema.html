@@ -1,10 +1,10 @@
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "Recipe",
   "author": {
     "@type": "Person",
-    "name": "{{ .Site.Params.author }}",
+    "name": "{{ .Site.Params.author }}"
   },
   "name": "{{ .Title }}",
   "datePublished": "{{ .Params.date }}",
@@ -13,17 +13,22 @@
   "recipeYield": "{{ .Params.info.yield }}",
   "image": "{{ .Params.image }}",
   "recipeIngredient": [
-    {{- range .Params.ingredients }}
-    "{{ . }}",
+    {{- range $i, $e := .Params.ingredients }}
+    {{- if $i -}},{{- end }}
+    "{{ $e }}"
     {{- end }}
   ],
   "recipeInstructions": [
-   {{- range .Params.directions }}
-    {
+   {{- range $i, $e := .Params.directions }}
+    {{- if $i -}},{{- end }}  
+   {
       "@type": "HowToStep",
-      "text": "{{ . }}",
-    },
+      "text": "{{ $e }}"
+    }
    {{- end }}
   ],
+  "keywords": "{{ delimit .Params.tags ", "}}",
+  "recipeCategory": "{{ delimit .Params.category ", "}}",
+  "recipeCuisine": "{{ delimit .Params.cuisine ", "}}"
 }
 </script>
