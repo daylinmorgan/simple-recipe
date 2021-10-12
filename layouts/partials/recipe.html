@@ -1,7 +1,7 @@
 <div id="wrapper" class="lg:max-w-3xl px-1 object-center mx-auto text-white print:text-black">
   <!-- recipe (details inserted with Hugo) -->
   <section>
-    <img class="mx-auto max-w-lg print:hidden" src="{{ index .Params "image" | default $.Site.Params.defaultRecipeImage }}">
+    <img class="mx-auto w-11/12 lg:max-w-lg print:hidden" src="{{ index .Params "image" | default $.Site.Params.defaultRecipeImage }}">
   </section>
   <section id="title">
     <h1 class="print:m-0 print:p-0">{{ .Title }}</h1>
