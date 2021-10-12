@@ -30,15 +30,15 @@
       "text": "{{ $e }}"
     }
    {{- end }}
-  ],
-  {{ with .Params.tags -}}
-  "keywords": "{{ delimit . ", "}}",
-  {{ end -}}
-  {{ with .Params.category -}}
-  "recipeCategory": "{{ delimit . ", "}}",
-  {{ end -}}
-  {{ with .Params.cuisine -}}
+  ]
+  {{- with .Params.tags -}},
+  "keywords": "{{ delimit . ", "}}"
+  {{- end -}}
+  {{- with .Params.category -}},
+  "recipeCategory": "{{ delimit . ", "}}"
+  {{- end -}}
+  {{- with .Params.cuisine -}},
   "recipeCuisine": "{{ delimit . ", "}}"
-  {{ end -}}
+  {{- end }}
 }
 </script>
