@@ -51,4 +51,5 @@
 		  @apply cursor-pointer lg:hidden flex items-center px-3 py-2 border rounded hover:text-white hover:border-yellow-300;
 		}
 	</style>
+	{{ if .IsPage }} {{ partial "schema.html" . }} {{ end }}
 </head>
