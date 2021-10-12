@@ -1,6 +1,9 @@
 
-<footer class="text-center py-4 print:hidden">
+<footer class="py-4 print:hidden"> 
   {{ if $.Site.Params.email }}
-    Send me your recipes! -> <a href="mailto:{{ $.Site.Params.email }}"> &#9993 </a>
+  <div class="flex flex-row justify-center">
+    <span class="my-auto">Send me your recipes! -></span> 
+    <a class="text-2xl lg:text-4xl" href="mailto:{{ $.Site.Params.email }}"> &#9993 </a>
   {{ end }}
+  </div>
 </footer>
