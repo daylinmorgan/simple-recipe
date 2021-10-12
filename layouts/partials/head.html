@@ -7,13 +7,48 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i,900,900i" />
     <link rel="stylesheet" href="/css/custom.css" />
+	<link rel="stylesheet" href="/css/windi.css" />
 
-    {{- if (or ($.Site.IsServer) (eq hugo.Environment "development")) -}}
-    {{- $appCSS := resources.Get "app.css" -}}
-    <link rel="stylesheet" href="{{ $appCSS.RelPermalink}}" media="all">
-    {{- else -}}
-    {{- $appCSS := resources.Get "app.min.css" }}
-    <link rel="stylesheet" href="{{ $appCSS.RelPermalink}}" media="all">
-    {{- end }}
+	<style lang="winidi">
+		#menu-toggle:checked + #menu {
+		  display: block;
+		}
 
+		h1 {
+		  @apply lg:text-6xl text-3xl font-black uppercase;
+		}
+
+		h2 {
+		  @apply text-2xl font-extrabold;
+		}
+
+		section {
+		  @apply block p-2;
+
+		}
+
+		hr {
+		  @apply border-dashed
+		}
+
+		.fira-sans {
+		  font-family: "Fira Sans", sans-serif;
+		}
+
+		.list {
+		  list-style:square outside;
+		}
+
+		.link {
+		  @apply border-b-2 border-transparent hover:border-yellow-300;
+		}
+
+		.nav-link {
+		  @apply lg:p-3 px-0 block border-b-2 border-transparent hover:border-yellow-300;
+		}
+
+		.nav-menu-btn {
+		  @apply cursor-pointer lg:hidden flex items-center px-3 py-2 border rounded hover:text-white hover:border-yellow-300;
+		}
+	</style>
 </head>
