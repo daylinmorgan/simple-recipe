@@ -7,11 +7,15 @@
     "name": "{{ .Site.Params.author }}"
   },
   "name": "{{ .Title }}",
+  "url": "{{ .Permalink }}",
   "datePublished": "{{ .Params.date }}",
   "prepTime": "{{ .Params.Info.prepTime }}",
   "cookTime": "{{ .Params.Info.cookTime }}",
   "recipeYield": "{{ .Params.info.yield }}",
-  "image": "{{ .Params.image }}",
+  "image": {
+    "@type": "imageObject",
+    "url": "{{ if .Params.image }}{{ print .Permalink .Params.image }}{{ end }}"
+  },
   "recipeIngredient": [
     {{- range $i, $e := .Params.ingredients }}
     {{- if $i -}},{{- end }}
