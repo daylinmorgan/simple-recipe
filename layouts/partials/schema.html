@@ -27,8 +27,14 @@
     }
    {{- end }}
   ],
-  "keywords": "{{ delimit .Params.tags ", "}}",
-  "recipeCategory": "{{ delimit .Params.category ", "}}",
-  "recipeCuisine": "{{ delimit .Params.cuisine ", "}}"
+  {{ with .Params.tags -}}
+  "keywords": "{{ delimit . ", "}}",
+  {{ end -}}
+  {{ with .Params.category -}}
+  "recipeCategory": "{{ delimit . ", "}}",
+  {{ end -}}
+  {{ with .Params.cuisine -}}
+  "recipeCuisine": "{{ delimit . ", "}}"
+  {{ end -}}
 }
 </script>
