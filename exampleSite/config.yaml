@@ -1,12 +1,12 @@
 baseURL: "http://example.org/"
 languageCode: "en-us"
-title: "Recipe Book" 
+title: "Recipe Book"
 theme: "simple-recipe"
 
 params:
   help: true
-  defautRecipeImage: "/images/xkcd720.png"
-  email: "me@dayl.in"
+  defaultRecipeImage: "/images/xkcd720.png"
+  email: "recipes@example.com"
 
 menu:
   main:
@@ -24,6 +24,3 @@ taxonomies:
   category: category
   cuisine: cuisine
   tag: tags
-
-build:
-  writeStats: true

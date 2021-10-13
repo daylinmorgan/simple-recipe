@@ -8,12 +8,12 @@ description = ""
 homepage = "http://example.com/"
 tags = []
 features = []
-min_version = "0.41.0"
+min_version = "0.88.0"
 
 [params]
+  help = true
   favicon_32 = "/images/favicon-32x32.png"
   favicon_16 = "/images/favicon-16x16.png"
 
 [author]
   name = "Daylin Morgan"
-  homepage = ""

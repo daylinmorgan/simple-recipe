@@ -4,7 +4,8 @@
     {{- $title := print .Site.Title " | " .Title }}
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
-
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ index .Site.Params "favicon_32" | default "/images/favicon-32x32.png" }}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ index .Site.Params "favicon_16" | default "/images/favicon-16x16.png" }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i,900,900i" />
     <link rel="stylesheet" href="/css/custom.css" />
 	<link rel="stylesheet" href="/css/windi.css" />

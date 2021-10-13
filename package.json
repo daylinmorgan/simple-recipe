@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "description": "Simple Recipe Theme for Hugo",
   "scripts": {
+	"dev":"run-p hugo:dev windi:dev",
+    "hugo:dev": "cd exampleSite && hugo server --themesDir ../..",
     "windi:dev": "windicss './layouts/**/*.html' -to static/css/windi.css --dev --style",
     "windi:prd": "windicss './layouts/**/*.html' -mto static/css/windi.css --style"
   },
@@ -11,7 +13,8 @@
     "url": "git+https://github.com/DaylinMorgan/simple-recipe.git"
   },
   "author": "Daylin Morgan",
-  "dependencies": {
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "windicss": "^3.1.9"
   }
 }
