@@ -12,8 +12,8 @@ Or as a hugo module by adding the below to your `config.{toml|yml}`:
 
 ```yaml
 - module:
-	- imports:
-		-path: github.com/daylinmorgan/simpe-recipe
+    imports:
+      - path: github.com/daylinmorgan/simpe-recipe
 ```
 
 ## Acknowledgements
