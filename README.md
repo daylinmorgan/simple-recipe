@@ -2,7 +2,7 @@
 
 ## Usage 
 
-In order to use this theme it is recommended that you implment as either a git submodule with:
+In order to use this theme it is recommended that you implement as either a git submodule with:
 
 ```bash
 git submodule add themes/simple-recipe
@@ -13,7 +13,7 @@ Or as a hugo module by adding the below to your `config.{toml|yml}`:
 ```yaml
 - module:
     imports:
-      - path: github.com/daylinmorgan/simpe-recipe
+      - path: github.com/daylinmorgan/simple-recipe
 ```
 
 ## Acknowledgements
