@@ -1,6 +1,6 @@
 baseURL: "http://example.org/"
 languageCode: "en-us"
-title: "Recipe Book"
+title: "Recipe Book Demo"
 theme: "simple-recipe"
 
 params:

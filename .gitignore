@@ -10,6 +10,7 @@ hugo_stats.json
 exampleSite/public/*
 exampleSite/resources/*
 assets/app.css
+.hugo_build.lock
 
 # Executable may be added to repository
 hugo.exe

@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "description": "Simple Recipe Theme for Hugo",
   "scripts": {
-	"dev":"run-p hugo:dev windi:dev",
+    "dev": "run-p hugo:dev windi:dev",
     "hugo:dev": "cd exampleSite && hugo server --themesDir ../..",
-    "windi:dev": "windicss './layouts/**/*.html' -to static/css/windi.css --dev --style",
-    "windi:prd": "windicss './layouts/**/*.html' -mto static/css/windi.css --style"
+    "windi:dev": "windicss './layouts/**/*.html' -to static/css/windi.css --dev --style --config windi.config.js",
+    "windi:prd": "windicss './layouts/**/*.html' -mto static/css/windi.css --style --config windi.config.js"
   },
   "repository": {
     "type": "git",
