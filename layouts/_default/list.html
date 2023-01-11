@@ -1,9 +1,11 @@
-{{ define "og-title" }}
-  {{ .Title }} - {{ .Site.Title }}
-{{ end }}
-{{ define "title" }}
-  {{ .Title }} - {{ .Site.Title }}
-{{ end }}
 {{ define "content" }}
-  {{ partial "list.html" . }}
+<div>
+  <h1 class="head">{{ .Title }}</h1>
+  <section>
+    {{ range .Paginator.Pages.ByTitle }}
+    <ul class="list">
+      <li> <a class="link" href="{{ .RelPermalink }} ">{{ .Title }} </a> </li>
+    </ul>
+    {{ end }}
+</div>
 {{ end }}

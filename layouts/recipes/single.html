@@ -1,9 +1,131 @@
-{{ define "og-title" }}
-  {{ .Title }} - {{ .Site.Title }}
-{{ end }}
-{{ define "title" }}
-  {{ .Title }} - {{ .Site.Title }}
-{{ end }}
 {{ define "content" }}
-  {{ partial "recipe.html" . }}
+<div class ="mx-5 text-xl">
+  <img 
+    class="mx-auto w-11/12 lg:max-w-lg print:hidden" 
+    src="{{ index .Params "image" | default $.Site.Params.defaultRecipeImage }}"
+  >
+  <h2 class="print:m-0 print:p-0 head2 text-5xl">{{ .Title }}</h2>
+
+  {{ if .Params.info }}
+  <section id="info" >
+    {{ if .Params.info.yield }}
+    <div class="inline-block px-4"> <p class="font-bold inline">Yield:</p> {{ .Params.info.yield }} </div>
+    {{ end }}
+    {{ if .Params.info.prepTime }}
+    <div class="inline-block px-4"> <p class="font-bold inline">PrepTime:</p> {{ .Params.info.prepTime }} </div>
+    {{ end }}
+    {{ if .Params.info.cookTime }}
+    <div class="inline-block px-4"><p class="font-bold inline">CookTime:</p> {{ .Params.info.cookTime }} </div>
+    {{ end }}
+  </section>
+  {{ end }}
+
+  <div class="flex flex-wrap flex-auto lg:flex-row lg:divide-x-2 divide-dashed flex-column">
+    <div class="lg:w-4/12 print:w-4/12 pr-2 order-1">
+      <section id="ingredients">
+        <h2 class="head2">ingredients</h2>
+        {{ with .Params.Ingredients }}
+        <!-- TODO: add spacing between ingredients --> 
+        <ul class="list space-y-1">
+          <!-- list ingredients that make up recipe -->
+          {{ range . }}
+          <li onclick="this.classList.toggle('line-through');">{{ . }}</li>
+          {{ end }} {{end}}
+        </ul>
+      </section>
+    </div>
+    <div class="lg:w-8/12 print:w-8/12 pl-2 order-2">
+      <section id="steps">
+        <h2 class="head2">steps</h2>
+        <ol class="list pl-10 list-decimal space-y-5">
+          <!-- list direction that make up recipe -->
+          {{ range .Params.Directions }}
+          <li onclick="this.classList.toggle('line-through');">{{ . }}</li>
+          {{end}}
+        </ol>
+      </section>
+    </div>
+  </div>
+  <hr class="mt-5 border-t-1 border-white b-dashed print:hidden" />
+
+  {{ if .Params.notes }}
+  <div id="notes">
+    <h2 class="head2">notes</h2>
+    <ul class="list">
+      {{ range .Params.notes}}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+  <div class="print:hidden">
+    {{ if $.Site.Params.help }}
+    <div id="help">
+      <h2 class="head2">help!</h2>
+      <ul class="list">
+        <li>
+          <a class="link" href="https://www.google.com/search?tbm=isch&q={{ .Title }}">Image search</a>
+        </li>
+        <li>
+          <a class="link" href="https://www.google.com/search?q={{ .Title }} recipes">More recipes</a>
+        </li>
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ if .Params.basedon }}
+    <div>
+      <h2 class="head2">based on</h2>
+      <ul class="list">
+        {{ range $index, $element := .Params.basedon.link }}
+        {{ $linknum := add $index 1 }}
+        <li><a class="link" href="{{ . }}">Ref. Link {{ $linknum }}</a></li>
+        {{ end }}
+
+        {{ range $index, $element := .Params.basedon.image }}
+        {{ $linknum := add $index 1 }}
+        <li><a class="link" href="{{ . }}">Ref. Image {{ $linknum }}</a></li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </div>
+
+    <!-- links to related recipes -->
+    {{ if or .Params.tags .Params.cuisine .Params.category}}
+    <div>
+      <h2 class="head2">related recipes</h2>
+      {{ if .Params.tags }}
+      <strong>tags:</strong>
+      {{ range $key, $value := .Params.tags }}
+      <a class="link" href="/tags/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.tags) 1) }},
+      {{ else }}{{ end }}
+      {{ end }}
+      <br>
+      {{ end }}
+
+      {{ if .Params.cuisine }}
+      <strong>cuisines:</strong>
+      {{ range $key, $value := .Params.cuisine }}
+      <a class="link"
+        href="/cuisine/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.cuisine) 1) }},
+      {{ else }}{{ end }}
+      {{ end }}
+      <br>
+      {{ end }}
+
+      {{ if .Params.category }}
+      <strong>categories:</strong>
+      {{ range $key, $value := .Params.category }}
+      <a class="link"
+        href="/category/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.category) 1) }},
+      {{ else }}{{ end }}
+      {{ end }}
+      <br>
+      {{ end }}
+
+    </div>
+    {{end}}
+
+  </div>
+</div>
 {{ end }}

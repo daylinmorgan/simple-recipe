@@ -1,11 +1,9 @@
 {{ define "content" }}
-<div class="lg:my-15 lg:max-w-3xl mx-auto flex flex-col place-content-center">
-
-    <span class="text-5xl lg:text-[100px] font-black mx-auto my-5 !important">404</span>
+<div class="lg:my-15 lg:max-w-3xl mx-auto text-center">
+    <span class="text-9xl lg:text-[200px] font-black mx-auto my-5">404</span>
     <div class="mx-auto lg:text-3xl">
         <span> You might be lost head </span>
-        <a class="link" href="{{ $.Site.BaseURL }}">home</a>
+        <a class="link underline" href="{{ $.Site.BaseURL }}">home</a>
     </div>
-
 </div>
 {{ end }}

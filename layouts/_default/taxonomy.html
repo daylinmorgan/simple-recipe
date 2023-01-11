@@ -1,9 +1,20 @@
-{{ define "og-title" }}
-  {{ .Title }} - {{ .Site.Title }}
-{{ end }}
-{{ define "title" }}
-  {{ .Title }} - {{ .Site.Title }}
-{{ end }}
 {{ define "content" }}
-  {{ partial "taxonomy.html" . }}
+<div class="mx-5">
+  <h2 class="head2">{{ .Title }}</h2>
+  {{ range .Pages.ByTitle }}
+  <div>
+    <div class="py-5">
+      <a class="link italic text-2xl" href="{{ .RelPermalink }} ">{{ .Title | humanize }} </a>
+      <hr/>
+    </div>
+    <div class="pl-5 text-xl">
+      <ul class="list-none">
+        {{ range .Pages.ByTitle }}
+        <li> <a class="link" href="{{ .RelPermalink }}">{{ .Page.Title }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+  {{ end }}
+</div>
 {{ end }}

@@ -1,25 +1,32 @@
-<header class="lg:max-w-3xl object-center mx-auto px-6 flex flex-wrap items-center py-2 print:hidden">
-  <div class="flex-1 flex justify-between items-center">
-    <a class="lg:text-6xl text-3xl font-black uppercase link" href="/"> Recipe Book </a>
+<header class="mx-auto px-6 flex flex-wrap items-center py-5 print:hidden">
+  <div class="flex-1 flex items-center">
+    <a
+      class=" head uppercase link font-mono-casual"
+      href="/"
+    >
+      Recipe Book 
+    </a>
   </div>
-  <label for="menu-toggle"
-    class="nav-menu-btn"><svg
-      class="fill-current " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-      <title>menu</title>
+  <label
+      for="menu-toggle"
+      class="cursor-pointer md:hidden flex items-center mx-5 py-2 px-5 hover:border hover:border-rounded hover:border-ctp-mauve"
+  >
+    <svg class="fill-current " xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
       <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-    </svg></label>
+    </svg>
+  </label>
   <input class="hidden" type="checkbox" id="menu-toggle" />
-  <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+  <div class="hidden md:flex md:items-center md:w-auto w-full">
     <nav>
-      <ul class="lg:flex items-center justify-between text-base pt-4 lg:pt-0">
+      <div class="md:flex items-center justify-between text-base py-2">
         {{ with .Site.Menus.main }}
-        {{ range sort . }}
-        <li>
-          <a href="{{ .URL | absLangURL }}" class="nav-link">{{ .Name }}</a>
-        </li>
+          {{ range sort . }}
+          <div class="lg:p-3 text-xl px-2 block border-b-2 border-transparent hover:border-ctp-mauve">
+            <a href ="{{ .URL | absLangURL }}">{{ .Name }}</a>
+          </div>
+          {{ end }}
         {{ end }}
-        {{ end }}
-      </ul>
+      </div>
     </nav>
   </div>
 </header>
