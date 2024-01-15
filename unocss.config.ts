@@ -21,7 +21,7 @@ export default defineConfig({
     section: "block p-2",
     hr: "border-dashed",
     head2: "text-3xl font-extrabold py-5",
-    head3: "text-2xl py-5",
+    head3: "text-2xl font-black py-5",
     link: "border-b-2 border-transparent hover:border-ctp-mauve",
   },
   theme: {

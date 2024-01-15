@@ -50,7 +50,7 @@
 
   {{ if .Params.notes }}
   <div id="notes">
-    <h2 class="head2">notes</h2>
+    <h2 class="head3">notes</h2>
     <ul class="list">
       {{ range .Params.notes}}
       <li>{{ . }}</li>
@@ -58,10 +58,10 @@
     </ul>
   </div>
   {{ end }}
-  <div class="print:hidden">
+  <div class="print:hidden md:flex flex-row justify-between mb-5">
     {{ if $.Site.Params.help }}
     <div id="help">
-      <h2 class="head2">help!</h2>
+      <h2 class="head3">help!</h2>
       <ul class="list">
         <li>
           <a class="link" href="https://www.google.com/search?tbm=isch&q={{ .Title }}">Image search</a>
@@ -75,7 +75,7 @@
 
     {{ if .Params.basedon }}
     <div>
-      <h2 class="head2">based on</h2>
+      <h2 class="head3">based on</h2>
       <ul class="list">
         {{ range $index, $element := .Params.basedon.link }}
         {{ $linknum := add $index 1 }}
@@ -90,10 +90,9 @@
       {{ end }}
     </div>
 
-    <!-- links to related recipes -->
     {{ if or .Params.tags .Params.cuisine .Params.category}}
     <div>
-      <h2 class="head2">related recipes</h2>
+      <h2 class="head3">related recipes</h2>
       {{ if .Params.tags }}
       <strong>tags:</strong>
       {{ range $key, $value := .Params.tags }}
@@ -122,10 +121,8 @@
       {{ end }}
       <br>
       {{ end }}
-
     </div>
     {{end}}
-
   </div>
 </div>
 {{ end }}
