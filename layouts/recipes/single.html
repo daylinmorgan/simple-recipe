@@ -1,10 +1,12 @@
 {{ define "content" }}
 <div class ="mx-5 text-xl">
-  <img 
-    class="mx-auto w-11/12 lg:max-w-lg print:hidden" 
-    src="{{ index .Params "image" | default $.Site.Params.defaultRecipeImage }}"
+  <img
+    class="mx-auto w-11/12 lg:max-w-lg print:hidden"
+    src="{{ index .Params "image" | default $.Site.Params.defaultRecipeImage | default (printf "%s%s" .Site.BaseURL "images/xkcd720.png") }}"
   >
-  <h2 class="print:m-0 print:p-0 head2 text-5xl">{{ .Title }}</h2>
+  <h2 class="print:m-0 print:p-0 head2 text-5xl">
+    {{ .Title }}
+  </h2>
 
   {{ if .Params.info }}
   <section id="info" >
