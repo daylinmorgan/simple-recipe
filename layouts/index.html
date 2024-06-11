@@ -1,7 +1,7 @@
 {{ define "content" }}
 <div class = "my-5 mx-5">
-  {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-  {{ range $paginator.Pages.ByTitle }}
+  {{ $recipePages := where .Site.RegularPages "Section" "recipes"  }}
+  {{ range ( sort $recipePages "Title" "asc")  }}
   <ul class="list-none capitalize text-2xl">
     <li> <a href="{{ .RelPermalink }}" class="link">{{ .Title }} </a> </li>
   </ul>
