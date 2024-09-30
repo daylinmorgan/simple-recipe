@@ -436,8 +436,8 @@ Make elements with the HTML hidden attribute stay hidden by default.
 .border-white{--un-border-opacity:1;border-color:rgb(255 255 255 / var(--un-border-opacity));}
 .hover\:border-ctp-mauve:hover{--un-border-opacity:1;border-color:rgb(235 160 172 / var(--un-border-opacity));}
 .hover\:border-rounded:hover{border-radius:0.25rem;}
-.bg-ctp-base{--un-bg-opacity:1;background-color:rgb(30 30 46 / var(--un-bg-opacity));}
-.fill-current{fill:currentColor;}
+.bg-ctp-base{--un-bg-opacity:1;background-color:rgb(30 30 46 / var(--un-bg-opacity)) /* #1e1e2e */;}
+.fill-current{fill:currentColor /* currentColor */;}
 .px-2{padding-left:0.5rem;padding-right:0.5rem;}
 .px-4{padding-left:1rem;padding-right:1rem;}
 .px-5{padding-left:1.25rem;padding-right:1.25rem;}
@@ -455,7 +455,7 @@ Make elements with the HTML hidden attribute stay hidden by default.
 .text-9xl{font-size:8rem;line-height:1;}
 .text-base{font-size:1rem;line-height:1.5rem;}
 .text-xl{font-size:1.25rem;line-height:1.75rem;}
-.text-ctp-text{--un-text-opacity:1;color:rgb(205 214 244 / var(--un-text-opacity));}
+.text-ctp-text{--un-text-opacity:1;color:rgb(205 214 244 / var(--un-text-opacity)) /* #cdd6f4 */;}
 .font-black{font-weight:900;}
 .font-bold{font-weight:700;}
 .uppercase{text-transform:uppercase;}
@@ -469,9 +469,9 @@ Make elements with the HTML hidden attribute stay hidden by default.
 .print\:hidden{display:none;}
 .print\:w-4\/12{width:33.3333333333%;}
 .print\:w-8\/12{width:66.6666666667%;}
-.print\:bg-white{--un-bg-opacity:1;background-color:rgb(255 255 255 / var(--un-bg-opacity));}
+.print\:bg-white{--un-bg-opacity:1;background-color:rgb(255 255 255 / var(--un-bg-opacity)) /* #fff */;}
 .print\:p-0{padding:0;}
-.print\:text-black{--un-text-opacity:1;color:rgb(0 0 0 / var(--un-text-opacity));}
+.print\:text-black{--un-text-opacity:1;color:rgb(0 0 0 / var(--un-text-opacity)) /* #000 */;}
 }
 @media (min-width: 768px){
 .md\:hidden{display:none;}
