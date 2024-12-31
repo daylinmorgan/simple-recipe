@@ -395,6 +395,10 @@ Make elements with the HTML hidden attribute stay hidden by default.
 .head3{padding-top:1.25rem;padding-bottom:1.25rem;font-size:1.5rem;line-height:2rem;font-weight:900;}
 .list{padding-left:1.25rem;}
 .head{font-size:2.25rem;line-height:2.5rem;font-weight:900;text-transform:uppercase;}
+@media print{
+.head2{padding-top:0.25rem;padding-bottom:0.25rem;font-size:1.25rem;line-height:1.75rem;}
+.head3{font-size:1.25rem;line-height:1.75rem;}
+}
 @media (min-width: 640px){
 .head{font-size:3.75rem;line-height:1;}
 }
@@ -469,8 +473,9 @@ Make elements with the HTML hidden attribute stay hidden by default.
 .print\:hidden{display:none;}
 .print\:w-4\/12{width:33.3333333333%;}
 .print\:w-8\/12{width:66.6666666667%;}
+.print\:space-y-1>:not([hidden])~:not([hidden]){--un-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--un-space-y-reverse)));margin-bottom:calc(0.25rem * var(--un-space-y-reverse));}
 .print\:bg-white{--un-bg-opacity:1;background-color:rgb(255 255 255 / var(--un-bg-opacity)) /* #fff */;}
-.print\:p-0{padding:0;}
+.print\:text-base{font-size:1rem;line-height:1.5rem;}
 .print\:text-black{--un-text-opacity:1;color:rgb(0 0 0 / var(--un-text-opacity)) /* #000 */;}
 }
 @media (min-width: 768px){

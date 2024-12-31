@@ -4,7 +4,7 @@
     class="mx-auto w-11/12 lg:max-w-lg print:hidden"
     src="{{ index .Params "image" | default $.Site.Params.defaultRecipeImage | default (printf "%s%s" .Site.BaseURL "images/xkcd720.png") }}"
   >
-  <h2 class="print:m-0 print:p-0 head2 text-5xl">
+  <h2 class="print:m-0 text-5xl head2">
     {{ .Title }}
   </h2>
 
@@ -22,7 +22,7 @@
   </section>
   {{ end }}
 
-  <div class="flex flex-wrap flex-auto lg:flex-row lg:divide-x-2 divide-dashed flex-column">
+  <div class="flex flex-wrap flex-auto lg:flex-row lg:divide-x-2 divide-dashed flex-column print:text-base">
     <div class="lg:w-4/12 print:w-4/12 pr-2 order-1">
       <section id="ingredients">
         <h2 class="head2">ingredients</h2>
@@ -39,7 +39,7 @@
     <div class="lg:w-8/12 print:w-8/12 pl-2 order-2">
       <section id="steps">
         <h2 class="head2">steps</h2>
-        <ol class="list pl-10 list-decimal space-y-5">
+        <ol class="list pl-10 list-decimal space-y-5 print:space-y-1">
           <!-- list direction that make up recipe -->
           {{ range .Params.Directions }}
           <li onclick="this.classList.toggle('line-through');">{{ . }}</li>
@@ -60,7 +60,8 @@
     </ul>
   </div>
   {{ end }}
-  <div class="print:hidden md:flex flex-row justify-between mb-5">
+  <div class ="print:hidden">
+  <div class="md:flex flex-row justify-between mb-5">
     {{ if $.Site.Params.help }}
     <div id="help">
       <h2 class="head3">help!</h2>
@@ -125,6 +126,7 @@
       {{ end }}
     </div>
     {{end}}
+  </div>
   </div>
 </div>
 {{ end }}

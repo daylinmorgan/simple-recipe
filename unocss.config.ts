@@ -20,8 +20,8 @@ export default defineConfig({
     head: "sm:text-6xl  text-4xl font-black uppercase",
     section: "block p-2",
     hr: "border-dashed",
-    head2: "text-3xl font-extrabold py-5",
-    head3: "text-2xl font-black py-5",
+    head2: "text-3xl font-extrabold py-5 print:text-xl print:py-1",
+    head3: "text-2xl font-black py-5 print:text-xl",
     link: "border-b-2 border-transparent hover:border-ctp-mauve",
   },
   theme: {
