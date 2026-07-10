@@ -98,29 +98,37 @@
       <h2 class="head3">related recipes</h2>
       {{ if .Params.tags }}
       <strong>tags:</strong>
-      {{ range $key, $value := .Params.tags }}
-      <a class="link" href="/tags/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.tags) 1) }},
-      {{ else }}{{ end }}
+        {{ range $key, $value := .Params.tags }}
+        <a class="link" href="/tags/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.tags) 1) }},
+        {{ end }}
       {{ end }}
       <br>
       {{ end }}
 
       {{ if .Params.cuisine }}
       <strong>cuisines:</strong>
-      {{ range $key, $value := .Params.cuisine }}
-      <a class="link"
-        href="/cuisine/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.cuisine) 1) }},
-      {{ else }}{{ end }}
+      {{ $cuisines := .Params.cuisine }}
+      {{ if not (reflect.IsSlice $cuisines) }}
+        {{ $cuisines = slice $cuisines }}
+      {{ end }}
+        {{ range $key, $value := $cuisines }}
+        <a class="link"
+          href="/cuisine/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $cuisines) 1) }},
+        {{ end }}
       {{ end }}
       <br>
       {{ end }}
 
       {{ if .Params.category }}
       <strong>categories:</strong>
-      {{ range $key, $value := .Params.category }}
-      <a class="link"
-        href="/category/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $.Params.category) 1) }},
-      {{ else }}{{ end }}
+      {{ $categories := .Params.category }}
+      {{ if not (reflect.IsSlice $categories) }}
+          {{ $categories = slice $categories }}
+      {{ end }}
+        {{ range $key, $value := $categories }}
+        <a class="link"
+          href="/category/{{ $value | urlize }}">{{ $value }}</a>{{ if ne $key (sub (len $categories) 1) }},
+        {{ end }}
       {{ end }}
       <br>
       {{ end }}

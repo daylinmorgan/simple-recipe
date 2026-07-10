@@ -4,13 +4,13 @@ date: {{ .Date }}
 draft: true
 title: "{{ replace .Name "-" " " | humanize | title }}" # The title of your awesome recipe
 image: /images/xkcd720.png # Name of image in recipe bundle
-category: # type of meal --- must be a list!
+category: # type of meal, list or value
 # - Breakfast, Lunch, Dinner, Appetizer, Snack, Dessert
-cuisine: # region for recipe --- must be a list!
+cuisine: # region for recipe, list or value
 # - French, Mediterranean, American, etc 
-tags: # general info to connect to other recipes --- must be a list! 
+tags: # general info to connect to other recipes, list
 # - savory, sweet, vegan, etc.
-info: 
+info:
   yield: # number of servings
   prepTime: # noncooking prep time (chopping/measuring)
   cookTime: # cooking/baking time
