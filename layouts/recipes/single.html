@@ -1,5 +1,4 @@
 {{ define "content" }}
-{{ $gridResource := printf "static/%sgrid.html" .File.Dir }}
 <div class ="mx-5 text-xl">
   <img
     class="mx-auto w-11/12 lg:max-w-lg print:hidden"
@@ -8,7 +7,8 @@
   <h2 class="print:m-0 text-5xl head2">
     {{ .Title }}
   </h2>
-  {{ with resources.Get $gridResource}}
+
+  {{ with resources.Get (printf "grids/%s.html" .File.ContentBaseName) }}
     <p><a class ="link" href="{{ .RelPermalink }}">see grid for overview</a></p>
   {{ end }}
 
