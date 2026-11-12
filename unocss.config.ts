@@ -26,6 +26,7 @@ export default defineConfig({
   },
   theme: {
     colors: {
+      "ctp-mantle": "#181825",
       "ctp-base": "#1e1e2e",
       "ctp-mauve": "#eba0ac",
       "ctp-text": "#cdd6f4",

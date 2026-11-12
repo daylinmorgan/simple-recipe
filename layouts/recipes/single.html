@@ -8,11 +8,7 @@
     {{ .Title }}
   </h2>
 
-  {{ with resources.Get (printf "grids/%s.html" .File.ContentBaseName) }}
-    <p><a class ="link" href="{{ .RelPermalink }}">see grid for overview</a></p>
-  {{ end }}
-
-  {{ if .Params.info }}
+    {{ if .Params.info }}
   <section id="info" >
     {{ if .Params.info.yield }}
     <div class="inline-block px-4"> <p class="font-bold inline">Yield:</p> {{ .Params.info.yield }} </div>
@@ -140,5 +136,12 @@
     {{end}}
   </div>
   </div>
+  <hr class="mt-5 border-t-1 border-white b-dashed print:hidden" />
+  {{ with resources.Get (printf "grids/%s.html" .File.ContentBaseName) }}
+  <div class='print:hidden'>
+    <h2 class='head2'>grid</h2>
+    <section class="recipe-grid overflow-x-auto bg-ctp-mantle p-2 rounded-md">{{ .Content | safeHTML }}</section>
+  </div>
+  {{ end }}
 </div>
 {{ end }}
